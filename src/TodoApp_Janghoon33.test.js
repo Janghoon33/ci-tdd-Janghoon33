@@ -27,6 +27,14 @@ describe('<TodoApp_Janghoon33', () => {
         expect(todoText).not.toHaveStyle('text-decoration: line-through');
         fireEvent.click(todoText);
         expect(todoText).toHaveStyle('text-decoration: line-through');
+    });
+
+    it('remove dodo',()=>{
+        const {getByText} = render(<TodoApp_Janghoon33/>);
+        const todoText = getByText('TDD 배우기');
+        const removeButton = todoText.nextSibling;
+        fireEvent.click(removeButton);
+        expect(todoText).not.toBeInTheDocument();
     })
 });
 
